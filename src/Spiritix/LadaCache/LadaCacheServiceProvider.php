@@ -15,10 +15,6 @@ use Illuminate\Support\ServiceProvider;
 use Spiritix\LadaCache\Console\DisableCommand;
 use Spiritix\LadaCache\Console\EnableCommand;
 use Spiritix\LadaCache\Console\FlushCommand;
-use Spiritix\LadaCache\Database\Connection\MysqlConnection;
-use Spiritix\LadaCache\Database\Connection\PostgresConnection;
-use Spiritix\LadaCache\Database\Connection\SqlLiteConnection;
-use Spiritix\LadaCache\Database\Connection\SqlServerConnection;
 use Spiritix\LadaCache\Debug\CacheCollector;
 
 /**
@@ -65,7 +61,6 @@ class LadaCacheServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerSingletons();
-        $this->registerConnections();
         $this->registerCommand();
     }
 
@@ -98,35 +93,6 @@ class LadaCacheServiceProvider extends ServiceProvider
 
         $this->app->singleton('lada.handler', function() use ($cache, $invalidator) {
             return new QueryHandler($cache, $invalidator);
-        });
-    }
-
-    /**
-     * Register connections.
-     *
-     * Here we are overriding all connection singleton's from Laravel.
-     * This is the only way to make them use our custom query builder which then uses our cache.
-     */
-    private function registerConnections()
-    {
-        $this->app->bind('db.connection.mysql', function ($app, $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
-            return new MysqlConnection($connection, $database, $prefix, $config);
-        });
-
-        $this->app->bind('db.connection.postgres', function ($app, $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
-            return new PostgresConnection($connection, $database, $prefix, $config);
-        });
-
-        $this->app->bind('db.connection.sqllite', function ($app, $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
-            return new SqlLiteConnection($connection, $database, $prefix, $config);
-        });
-
-        $this->app->bind('db.connection.sqlserver', function ($app, $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
-            return new SqlServerConnection($connection, $database, $prefix, $config);
         });
     }
 

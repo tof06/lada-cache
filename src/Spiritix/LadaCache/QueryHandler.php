@@ -12,7 +12,7 @@
 namespace Spiritix\LadaCache;
 
 use ReflectionException;
-use Spiritix\LadaCache\Database\QueryBuilder;
+use Spiritix\LadaCache\Database\Query\Builder;
 use Spiritix\LadaCache\Debug\CacheCollector;
 
 /**
@@ -40,7 +40,7 @@ class QueryHandler
     /**
      * Query builder instance.
      *
-     * @var null|QueryBuilder
+     * @var null|Builder
      */
     private $builder = null;
 
@@ -66,11 +66,11 @@ class QueryHandler
     /**
      * Set the query builder instance.
      *
-     * @param QueryBuilder $builder
+     * @param Builder $builder
      *
      * @return QueryHandler
      */
-    public function setBuilder(QueryBuilder $builder)
+    public function setBuilder(Builder $builder)
     {
         $this->builder = $builder;
 

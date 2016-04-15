@@ -2,7 +2,7 @@
 
 namespace Spiritix\LadaCache\Tests;
 
-use Spiritix\LadaCache\Database\QueryBuilder;
+use Spiritix\LadaCache\Database\Query\Builder;
 use Spiritix\LadaCache\Hasher;
 use Spiritix\LadaCache\Reflector;
 use Spiritix\LadaCache\Tests\Database\Models\Car;
@@ -80,7 +80,7 @@ class IntegrationTest extends TestCase
         $this->assertFalse($this->hasQuery($builder->getQuery()));
     }
 
-    private function hasQuery(QueryBuilder $builder)
+    private function hasQuery(Builder $builder)
     {
         $reflector = app()->make(Reflector::class, [$builder]);
         $hasher = app()->make(Hasher::class, [$reflector]);

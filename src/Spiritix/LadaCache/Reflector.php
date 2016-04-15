@@ -11,7 +11,7 @@
 
 namespace Spiritix\LadaCache;
 
-use Spiritix\LadaCache\Database\QueryBuilder;
+use Spiritix\LadaCache\Database\Query\Builder;
 
 /**
  * Query builder reflector provides information about an Eloquent query builder object.
@@ -33,16 +33,16 @@ class Reflector
     /**
      * Query builder instance.
      *
-     * @var QueryBuilder
+     * @var Builder
      */
     protected $queryBuilder;
 
     /**
      * Initialize reflector.
      *
-     * @param QueryBuilder $queryBuilder
+     * @param Builder $queryBuilder
      */
-    public function __construct(QueryBuilder $queryBuilder)
+    public function __construct(Builder $queryBuilder)
     {
         $this->queryBuilder = $queryBuilder;
     }

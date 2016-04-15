@@ -29,7 +29,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Spiritix\\LadaCache\\": "src/Spiritix/LadaCache/"
+            "Spiritix\\LadaCache\\": "src/Spiritix/LadaCache/",
+            "Illuminate\\Database\\": "src/Spiritix/LadaCache/Database/"
         }
     },
     "autoload-dev": {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Spiritix\LadaCache\Database;
+namespace Spiritix\LadaCache\Database\Query;
 
 use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\Builder as IlluminateBuilder;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
 use Spiritix\LadaCache\QueryHandler;
@@ -23,7 +23,7 @@ use Spiritix\LadaCache\QueryHandler;
  * @package Spiritix\LadaCache\Database
  * @author  Matthias Isler <mi@matthias-isler.ch>
  */
-class QueryBuilder extends Builder
+class Builder extends IlluminateBuilder
 {
     /**
      * Handler instance.
