@@ -49,6 +49,16 @@ class Builder extends IlluminateBuilder
     }
 
     /**
+     * Get a new instance of the query builder.
+     *
+     * @return QueryBuilder
+     */
+    public function newQuery()
+    {
+        return new static($this->connection, $this->grammar, $this->processor, $this->handler);
+    }
+
+    /**
      * Run the query as a "select" statement against the connection.
      *
      * @return array
