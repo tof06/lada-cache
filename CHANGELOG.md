@@ -6,6 +6,7 @@
 
 ### Changed
 - Improved unit tests
+- It is not required anymore to have all models extending the ``Spiritix\LadaCache\Database\Model`` class
 
 ## [1.2.1] - 2016-05-15
 ### Fixed

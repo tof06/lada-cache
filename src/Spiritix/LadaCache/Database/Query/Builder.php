@@ -51,7 +51,7 @@ class Builder extends IlluminateBuilder
     /**
      * Get a new instance of the query builder.
      *
-     * @return QueryBuilder
+     * @return Builder
      */
     public function newQuery()
     {
