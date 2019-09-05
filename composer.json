@@ -21,6 +21,7 @@
         "phpunit/phpunit": "~7.0|^8.0",
         "codeclimate/php-test-reporter": "dev-master",
         "orchestra/testbench": "~3.7|~4.0",
+        "laracasts/testdummy": "~2.3",
         "mockery/mockery": "^1.2"
     },
     "suggest": {
